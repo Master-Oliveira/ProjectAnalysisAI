@@ -1,0 +1,17 @@
+environment: dev
+
+message-processor:
+  service_bus:
+    connection_string: "Endpoint=sb://dev-servicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=DEMO_KEY"
+    queue_name: "dev-messages-queue"
+  log_level: "DEBUG"
+  port: 8001
+
+data-api:
+  cosmos_db:
+    endpoint: "https://dev-cosmosdb.documents.azure.com:443/"
+    key: "DEMO_COSMOS_KEY"
+    database_name: "dev-database"
+    container_name: "users"
+  log_level: "DEBUG"
+  port: 8002
