@@ -1,0 +1,217 @@
+name: 🎯 Request To-Be Document Generation
+description: Request a To-Be document outlining the target state for migration to GitHub and Azure Cloud
+title: "[TO-BE] Migration Plan for <PROJECT-CODE>"
+labels: ["analysis", "to-be-document", "documentation", "migration-planning"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Request a To-Be Document
+        
+        Use this template to request a **To-Be document** that outlines the desired future state of a project after migration to GitHub and Azure Cloud. This document will include:
+        - Target architecture on Azure Cloud
+        - Proposed technology stack and versions
+        - Migration strategy and approach
+        - Risk assessment and mitigation plan
+        - Effort estimation and timeline
+        
+        **Prerequisites**: An As-Is document should typically exist before creating a To-Be document.
+
+  - type: input
+    id: project-code
+    attributes:
+      label: Project Code
+      description: The project identifier in format XXX-NNN (e.g., PRJ-000, ABC-123)
+      placeholder: "PRJ-000"
+    validations:
+      required: true
+
+  - type: input
+    id: project-name
+    attributes:
+      label: Project Name
+      description: The full name of the project
+      placeholder: "Demo Microservices"
+    validations:
+      required: true
+
+  - type: input
+    id: as-is-document
+    attributes:
+      label: As-Is Document Reference
+      description: Link or filename of the existing As-Is document (if available)
+      placeholder: "docs/PRJ-000-as-is.md or issue #123"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: migration-approach
+    attributes:
+      label: Preferred Migration Approach
+      description: What type of migration strategy do you prefer?
+      options:
+        - Not sure - Need recommendation
+        - Lift and Shift - Minimal changes, quick migration
+        - Refactor - Modernize while migrating
+        - Replatform - Optimize for cloud without full rewrite
+        - Rebuild - Complete rewrite for cloud-native
+        - Replace - Use SaaS/PaaS alternatives
+      default: 0
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: azure-services
+    attributes:
+      label: Target Azure Services (if known)
+      description: Select the Azure services you want to target
+      options:
+        - label: Azure App Service (Web Apps)
+        - label: Azure Functions (Serverless)
+        - label: Azure Kubernetes Service (AKS)
+        - label: Azure Container Instances
+        - label: Azure SQL Database
+        - label: Azure Cosmos DB
+        - label: Azure Service Bus
+        - label: Azure Event Hubs
+        - label: Azure Storage (Blob, Queue, Table)
+        - label: Azure Key Vault
+        - label: Azure API Management
+        - label: Azure Application Insights
+        - label: Not sure - Need recommendations
+
+  - type: dropdown
+    id: github-features
+    attributes:
+      label: GitHub Features Needed
+      description: What GitHub features are important for this project?
+      multiple: true
+      options:
+        - GitHub Actions (CI/CD)
+        - GitHub Packages
+        - GitHub Security (Dependabot, Code Scanning)
+        - GitHub Projects (Project Management)
+        - Branch Protection Rules
+        - Code Review Workflows
+        - Not sure - Need recommendations
+    validations:
+      required: false
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Migration Constraints
+      description: Any constraints or requirements for the migration?
+      placeholder: |
+        - Must maintain backward compatibility
+        - Zero downtime required
+        - Budget limitations
+        - Compliance requirements (GDPR, HIPAA, etc.)
+        - Timeline constraints
+    validations:
+      required: false
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria
+      description: What defines a successful migration for this project?
+      placeholder: |
+        - Same or better performance
+        - Reduced operational costs
+        - Improved scalability
+        - Enhanced security posture
+        - Better developer experience
+    validations:
+      required: false
+
+  - type: dropdown
+    id: migration-timeline
+    attributes:
+      label: Target Migration Timeline
+      description: When do you plan to complete the migration?
+      options:
+        - Within 1 month
+        - Within 3 months
+        - Within 6 months
+        - Within 1 year
+        - Beyond 1 year
+        - Flexible - No specific deadline
+      default: 5
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risk-tolerance
+    attributes:
+      label: Risk Tolerance
+      description: What is your risk tolerance for this migration?
+      options:
+        - Low - Must be very conservative, minimal changes
+        - Medium - Balance between innovation and stability
+        - High - Willing to adopt cutting-edge solutions
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-pain-points
+    attributes:
+      label: Current Pain Points
+      description: What problems with the current setup do you want to address?
+      placeholder: |
+        - Difficult deployments
+        - Poor scalability
+        - High infrastructure costs
+        - Security concerns
+        - Limited monitoring/observability
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information for the To-Be document
+      placeholder: |
+        - Team expertise and skills
+        - Organizational standards or preferences
+        - Integration requirements with other systems
+        - Special considerations
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ### For the AI Agent
+        
+        **Task**: Generate a comprehensive To-Be document for the specified project migration.
+        
+        **Steps**:
+        1. Review the existing As-Is document for `<project-code>` (if available)
+        2. Analyze the project requirements and constraints
+        3. Design target architecture for Azure Cloud
+        4. Map current technologies to Azure equivalents
+        5. Define GitHub repository structure and CI/CD workflows
+        6. Create risk assessment and mitigation strategies
+        7. Provide effort estimation and migration roadmap
+        8. Create the document in Markdown format in the `docs/` folder as `<project-code>-to-be.md`
+        9. Ensure the document is accessible to non-technical stakeholders
+        
+        **Acceptance Criteria**:
+        - [ ] To-Be document created at `docs/<project-code>-to-be.md`
+        - [ ] Document includes target architecture diagram (text-based/mermaid)
+        - [ ] All Azure services are identified with justification
+        - [ ] Migration approach is clearly defined with phases
+        - [ ] Risk assessment includes mitigation strategies
+        - [ ] Effort estimation includes timeline and resources
+        - [ ] Cost comparison (if possible based on current state)
+        - [ ] GitHub workflow and branching strategy defined
+        - [ ] Security and compliance considerations addressed
+        - [ ] Document is written in non-technical language suitable for business audiences
+        - [ ] Document follows Markdown format for Confluence compatibility
