@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📚 Documentation Guide
+    url: https://github.com/Master-Oliveira/ProjectAnalysisAI/blob/main/docs/how-to-document.md
+    about: Learn about the document generation process and structure
+  - name: 📁 Project Repository Structure
+    url: https://github.com/Master-Oliveira/ProjectAnalysisAI/blob/main/mcp/README.md
+    about: Understand how projects are organized in the repository
+  - name: 💬 GitHub Discussions
+    url: https://github.com/Master-Oliveira/ProjectAnalysisAI/discussions
+    about: Ask questions and discuss migration strategies with the community

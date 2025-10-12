@@ -1,0 +1,169 @@
+name: 📝 Update Existing Document
+description: Request updates to an existing As-Is or To-Be document
+title: "[UPDATE] <Document Name>"
+labels: ["documentation", "update"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Update Existing Document
+        
+        Use this template to request updates to existing project documentation. This could be:
+        - Updating an As-Is document due to project changes
+        - Revising a To-Be document based on new requirements
+        - Adding missing information
+        - Correcting inaccuracies
+        - Incorporating feedback
+
+  - type: input
+    id: project-code
+    attributes:
+      label: Project Code
+      description: The project identifier in format XXX-NNN (e.g., PRJ-000, ABC-123)
+      placeholder: "PRJ-000"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: document-type
+    attributes:
+      label: Document Type
+      description: Which type of document needs to be updated?
+      options:
+        - As-Is Document
+        - To-Be Document
+        - Both As-Is and To-Be
+        - Other Documentation
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: document-location
+    attributes:
+      label: Document Location
+      description: Path or filename of the document to update
+      placeholder: "docs/PRJ-000-as-is.md"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: update-reason
+    attributes:
+      label: Reason for Update
+      description: Why does this document need to be updated?
+      options:
+        - Project changes (new features, architecture changes)
+        - Missing information discovered
+        - Inaccurate information needs correction
+        - Feedback from stakeholders
+        - Migration progress update
+        - Technology stack changes
+        - Organizational changes (new owner, tech lead)
+        - Other
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: changes-needed
+    attributes:
+      label: Changes Needed
+      description: Describe what needs to be updated in detail
+      placeholder: |
+        Please be specific about what needs to change:
+        - Which sections need updates?
+        - What information is missing or incorrect?
+        - What new information should be added?
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-content
+    attributes:
+      label: Current Content (Optional)
+      description: Copy the current content that needs to be changed (if specific section)
+      placeholder: |
+        Copy the current content here...
+    validations:
+      required: false
+
+  - type: textarea
+    id: desired-content
+    attributes:
+      label: Desired Content (Optional)
+      description: Provide the updated content or information to be included
+      placeholder: |
+        Provide the new or corrected information here...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Update Priority
+      description: How urgent is this update?
+      options:
+        - Low - Nice to have, no rush
+        - Medium - Important for accuracy
+        - High - Needed for upcoming migration work
+        - Critical - Blocking current work
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help with the update
+      placeholder: |
+        - Why is this update important?
+        - When did the changes occur?
+        - Impact of not making the update
+        - Related issues or documents
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: Verification
+      description: Please confirm before submitting
+      options:
+        - label: I have reviewed the current document
+          required: true
+        - label: I have provided specific details about the needed changes
+          required: true
+        - label: I have indicated which sections need updates
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ### For the AI Agent
+        
+        **Task**: Update the specified document with the requested changes.
+        
+        **Steps**:
+        1. Locate and review the current document
+        2. Understand the requested changes
+        3. If the change involves technical details, review the project source files
+        4. Make precise, surgical updates to the document
+        5. Ensure consistency with document formatting and style
+        6. Verify all information is accurate and up-to-date
+        7. Update any dependent sections (e.g., if architecture changes, update related diagrams)
+        8. Maintain non-technical language suitable for business audiences
+        
+        **Acceptance Criteria**:
+        - [ ] Requested changes are accurately reflected in the document
+        - [ ] Document maintains consistent formatting and style
+        - [ ] All sections affected by the change are updated
+        - [ ] Changes are verified against source files (if applicable)
+        - [ ] Document remains accessible to non-technical readers
+        - [ ] No unrelated content is modified
+        - [ ] Document still follows Markdown format for Confluence compatibility

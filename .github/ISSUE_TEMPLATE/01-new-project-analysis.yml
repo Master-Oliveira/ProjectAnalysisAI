@@ -1,0 +1,196 @@
+name: 🔍 Request New Project Analysis (As-Is Document)
+description: Request a comprehensive analysis of a project to generate an As-Is document capturing the current state
+title: "[ANALYSIS] As-Is Document for <PROJECT-CODE>"
+labels: ["analysis", "as-is-document", "documentation"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Request a New Project Analysis
+        
+        Use this template to request a comprehensive analysis of a project. The analysis will generate an **As-Is document** that captures the current state of the project including:
+        - Project information (owner, tech lead, description, use cases)
+        - Technical details (technologies, versions, architecture)
+        - Dependencies (databases, queues, external integrations)
+        - Communication matrix (servers, ports, connections)
+        
+        This document will be used as a baseline for migration planning to GitHub and Azure Cloud.
+
+  - type: input
+    id: project-code
+    attributes:
+      label: Project Code
+      description: The project identifier in format XXX-NNN (e.g., PRJ-000, ABC-123)
+      placeholder: "PRJ-000"
+    validations:
+      required: true
+
+  - type: input
+    id: project-name
+    attributes:
+      label: Project Name
+      description: The full name of the project
+      placeholder: "Demo Microservices"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: repository-location
+    attributes:
+      label: Current Repository Location
+      description: Where is the project currently hosted?
+      options:
+        - Bitbucket
+        - GitHub
+        - GitLab
+        - Azure DevOps
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: repository-url
+    attributes:
+      label: Repository URL (if accessible)
+      description: Provide the URL to the repository if available
+      placeholder: "https://bitbucket.org/organization/project"
+    validations:
+      required: false
+
+  - type: input
+    id: project-owner
+    attributes:
+      label: Current Project Owner
+      description: Name and/or email of the current project owner
+      placeholder: "John Doe (john.doe@company.com)"
+    validations:
+      required: false
+
+  - type: input
+    id: tech-lead
+    attributes:
+      label: Current Tech Lead
+      description: Name and/or email of the current technical lead
+      placeholder: "Jane Smith (jane.smith@company.com)"
+    validations:
+      required: false
+
+  - type: textarea
+    id: project-description
+    attributes:
+      label: Project Description
+      description: Brief description of the project, its purpose, and main use cases
+      placeholder: |
+        This project provides...
+        Main use cases include:
+        - Use case 1
+        - Use case 2
+    validations:
+      required: false
+
+  - type: textarea
+    id: known-technologies
+    attributes:
+      label: Known Technologies
+      description: List any known technologies, frameworks, or languages used (if known)
+      placeholder: |
+        - Python 3.11
+        - Flask
+        - Azure Service Bus
+        - Azure Cosmos DB
+    validations:
+      required: false
+
+  - type: textarea
+    id: known-dependencies
+    attributes:
+      label: Known Dependencies
+      description: List any known external dependencies (databases, queues, APIs, etc.)
+      placeholder: |
+        - SQL Server database (server: db-prod-01)
+        - Azure Service Bus (queue: orders)
+        - External API: payment-gateway
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Analysis Priority
+      description: How urgent is this analysis?
+      options:
+        - Low - Nice to have
+        - Medium - Important but not urgent
+        - High - Needed soon for migration planning
+        - Critical - Blocking other work
+      default: 1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: migration-target
+    attributes:
+      label: Migration Target Timeline
+      description: When is the migration planned?
+      options:
+        - Not yet planned
+        - Within 1 month
+        - Within 3 months
+        - Within 6 months
+        - Within 1 year
+        - Beyond 1 year
+      default: 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information that would help with the analysis
+      placeholder: |
+        - Access credentials location
+        - Documentation links
+        - Known issues or concerns
+        - Special considerations
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: data-location
+    attributes:
+      label: Project Data Availability
+      description: Where can the project information be found?
+      options:
+        - label: Project code is available in mcp/bitbucket/<project-code> folder
+        - label: Configuration files are available in mcp/config-manager
+        - label: Project requires access to external systems
+        - label: Documentation is available (will provide links)
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ### For the AI Agent
+        
+        **Task**: Generate a comprehensive As-Is document for the specified project.
+        
+        **Steps**:
+        1. Locate the project files in `mcp/bitbucket/<project-code>` or the specified location
+        2. Analyze all code, configuration files, and dependencies
+        3. Cross-reference with `mcp/config-manager` if needed
+        4. Follow the structure defined in `docs/how-to-document.md` for As-Is documents
+        5. Create the document in Markdown format in the `docs/` folder as `<project-code>-as-is.md`
+        6. Ensure the document is non-technical and suitable for architects and business stakeholders
+        
+        **Acceptance Criteria**:
+        - [ ] As-Is document created at `docs/<project-code>-as-is.md`
+        - [ ] Document includes all required sections: Project Information, Technical Details, Dependencies, Communication Matrix
+        - [ ] All technologies are listed with versions
+        - [ ] All dependencies are clearly identified with connection details
+        - [ ] Communication matrix includes sources, destinations, ports, and protocols
+        - [ ] Document is written in non-technical language suitable for business audiences
+        - [ ] Document follows Markdown format for Confluence compatibility

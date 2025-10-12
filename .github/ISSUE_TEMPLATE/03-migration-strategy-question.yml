@@ -1,0 +1,149 @@
+name: 💡 Migration Strategy Question
+description: Ask questions or request guidance on migration strategies and best practices
+title: "[QUESTION] <Brief description of your question>"
+labels: ["question", "migration-strategy", "guidance"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Migration Strategy Question
+        
+        Use this template to ask questions about migration strategies, best practices, or to request guidance on specific migration challenges. This is useful for:
+        - Clarifying migration approaches
+        - Understanding Azure service options
+        - Getting recommendations for specific scenarios
+        - Troubleshooting migration issues
+        - Learning about best practices
+
+  - type: dropdown
+    id: question-category
+    attributes:
+      label: Question Category
+      description: What area does your question relate to?
+      options:
+        - General Migration Strategy
+        - Azure Services Selection
+        - GitHub Setup and Configuration
+        - CI/CD and DevOps
+        - Security and Compliance
+        - Cost Optimization
+        - Performance and Scalability
+        - Data Migration
+        - Testing Strategy
+        - Rollback and Disaster Recovery
+        - Other
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: related-project
+    attributes:
+      label: Related Project Code (Optional)
+      description: If this question relates to a specific project, provide the project code
+      placeholder: "PRJ-000"
+    validations:
+      required: false
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: Describe your question or what guidance you need
+      placeholder: |
+        What is your question or what guidance do you need?
+        Be as specific as possible to get the most helpful answer.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-situation
+    attributes:
+      label: Current Situation (Context)
+      description: Describe the current state or context of your question
+      placeholder: |
+        - Current setup or architecture
+        - Technologies in use
+        - Constraints or requirements
+        - What you've tried so far
+    validations:
+      required: false
+
+  - type: textarea
+    id: desired-outcome
+    attributes:
+      label: Desired Outcome
+      description: What are you trying to achieve?
+      placeholder: |
+        - What is your goal?
+        - What problem are you trying to solve?
+        - What would success look like?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      description: How urgent is this question?
+      options:
+        - Low - Informational, planning for future
+        - Medium - Needed for upcoming work
+        - High - Blocking current migration work
+      default: 0
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: research-done
+    attributes:
+      label: Research Done
+      description: What have you already tried or researched?
+      options:
+        - label: Searched existing documentation
+        - label: Reviewed Azure documentation
+        - label: Reviewed GitHub documentation
+        - label: Consulted with team members
+        - label: Reviewed similar projects
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help answer your question
+      placeholder: |
+        - Links to relevant documentation
+        - Screenshots or diagrams
+        - Error messages
+        - Specific requirements or constraints
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        ### For the AI Agent
+        
+        **Task**: Provide comprehensive guidance to answer the migration strategy question.
+        
+        **Steps**:
+        1. Analyze the question and context provided
+        2. Research best practices and recommendations
+        3. Consider Azure and GitHub capabilities
+        4. Review relevant documentation and examples
+        5. Provide a detailed, actionable answer
+        6. Include references and links where helpful
+        7. Suggest next steps or follow-up actions
+        
+        **Response Guidelines**:
+        - Provide clear, non-technical explanations when possible
+        - Include practical examples or code snippets when relevant
+        - Consider multiple approaches and trade-offs
+        - Link to official documentation for further reading
+        - Address security and cost implications
+        - Suggest best practices and common pitfalls to avoid
+        - If the question relates to a specific project, reference existing As-Is or To-Be documents
