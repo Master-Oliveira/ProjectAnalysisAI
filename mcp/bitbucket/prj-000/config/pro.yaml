@@ -1,0 +1,17 @@
+environment: pro
+
+message-processor:
+  service_bus:
+    connection_string: "Endpoint=sb://pro-servicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=DEMO_KEY"
+    queue_name: "pro-messages-queue"
+  log_level: "INFO"
+  port: 8001
+
+data-api:
+  cosmos_db:
+    endpoint: "https://pro-cosmosdb.documents.azure.com:443/"
+    key: "DEMO_COSMOS_KEY"
+    database_name: "pro-database"
+    container_name: "users"
+  log_level: "INFO"
+  port: 8002
