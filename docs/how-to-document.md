@@ -1,26 +1,24 @@
-# Document generation instructions
-- All documents are generated in Markdown format to be added to a Confluence documentation portal
+# Instrucciones para la generación de documentos
+- Todos los documentos se generan en formato Markdown para ser añadidos a un portal de documentación en Confluence.
 
-# As-Is documents
-The As-Is document contains information about the current state of a project 
-It includes the following sections
-1. Project informations
-- current project owner 
-- current tech lead
-- projetc description with purpose and main use cases
-2. Technical detail
-- Technologies user with versions
-- Solution architecture
-3. Dependencies
-- list of dependencies, like databases, kafka server and queues, external integrations
-4. Communication matrix
-- Matrix with source and destination servers, ports and any additional information relative to a current communication need
+# Documentos As-Is
+El documento As-Is contiene información sobre el estado actual de un proyecto.
+Incluye las siguientes secciones:
+1. Información del proyecto
+- Descripción del proyecto con su propósito y principales casos de uso
+2. Detalles técnicos
+- Tecnologías utilizadas con sus versiones
+- Arquitectura de la solución
+3. Dependencias
+- Lista de dependencias, como bases de datos, servidores y colas de Kafka, integraciones externas
+4. Matriz de comunicaciones
+- Matriz con servidores de origen y destino, puertos y cualquier información adicional relacionada con una necesidad de comunicación actual
 
-## Using the AS-IS Template
+## Uso de la plantilla AS-IS
 
-To create a new AS-IS document:
-1. Copy the template file: `as-is-template.md`
-2. Replace all placeholder text in [brackets] with actual project information
-3. Follow the example document `as-is-prj-000-example.md` for reference
-4. Use simple, non-technical language suitable for business audiences
-5. Save the document with naming convention: `as-is-[project-code].md`
+Para crear un nuevo documento AS-IS:
+
+1. Copia el archivo de plantilla: as-is-template.md
+2. Reemplaza todo el texto entre [corchetes] con la información real del proyecto
+3. Usa un lenguaje simple y no técnico, adecuado para audiencias de negocio
+4. Guarda el documento con la convención de nombres: as-is-[código-del-proyecto].md
