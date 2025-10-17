@@ -1,38 +1,37 @@
 ### Project Overview
-This project is designed to analyze software repositories, specifically Bitbucket repositories, to extract and manage configuration data. It consists of several components that work together to provide a comprehensive analysis of the repositories.
+Este proyecto está diseñado para analizar repositorios de software, específicamente repositorios de Bitbucket, con el fin de extraer y gestionar datos de configuración. Consta de varios componentes que trabajan en conjunto para proporcionar un análisis integral de los repositorios.
 
-The objective is to generate 2 types of documents:
-1. A "As-Is" document that captures the current state of the repository.
-2. A "To-Be" document that outlines the desired future state of the repository with proposed changes to allow migration to Git-Hub and Azure Cloud.
+El objetivo es generar 2 tipos de documentos:
+1. Un documento "As-Is" que captura el estado actual del repositorio.
+2. Un documento "To-Be" que describe el estado futuro deseado del repositorio con los cambios propuestos para permitir la migración a GitHub y Azure Cloud.
 
 ## Document generation
-For detailed setup and documentation generation instructions, please refer to our [Documentation Guide](../docs/how-to-document.md).
+Para obtener instrucciones detalladas sobre la configuración y la generación de documentación, consulta la [Guía de Documentación.](../docs/how-to-document.md).
 
 ### User Interaction
 
-Consider the following when communicating with the document readers.
+Ten en cuenta lo siguiente al comunicarte con los lectores del documento:
 
-- The readers are not technical. Explain in simple terms as much as possible and avoid software jargon.
+- Los lectores no son técnicos. Explica en términos simples tanto como sea posible y evita jerga técnica.
 
 
 ## Folder structure
 
-- The project has a root folder with subfolders for different components.
-- Each subfolder contains related files and resources.
-- The folder mcp contains all the information about the projects.
-- The folder mcp/bitbucket contains all the projects files to use when analyzing Bitbucket repositories.
-- The folder mcp/config-manager contains all the projects configuration files to cross-reference when needed.
-- The folder docs contains all the documentation files.
+- La carpeta mcp contiene toda la información sobre las aplicaciones.
+- La carpeta mcp/bitbucket contiene todos los archivos de las aplicaciones que se utilizan al analizar repositorios de Bitbucket.
+- La carpeta mcp/config-manager contiene todos los archivos de configuración de las aplicaciones para referencias cruzadas cuando sea necesario.
+- Cada aplicación tiene una carpeta raíz con subcarpetas para diferentes componentes.
+- Cada subcarpeta dentro de la aplicación es un componente de la aplicación y contiene archivos y recursos relacionados de ese componente.
+- La carpeta docs contiene todos los archivos de documentación.
 
 
 ### Security considerations
 
-- Personal information might be processed so privacy and security are important.
-- Do not provide examples that encourage the user to hardcode secrets, passwords, or other sensitive information.
-- If credentials or other sensitive information is required, add features to the program to prompt for it, store it locally, and logout. For example a login dialog box.
+- El proyecto puede manejar datos sensibles y confidenciales, por lo que la privacidad y la seguridad son importantes.
+- No proporciones ejemplos que animen al usuario a codificar directamente secretos, contraseñas u otra información sensible.
+- Si se requieren credenciales u otra información sensible, agrega funciones al programa para solicitarlas, almacenarlas localmente y cerrar sesión. Por ejemplo, un cuadro de diálogo de inicio de sesión.
 
 ### Steps to generate a document
-1. Identify the repository to analyze from the mcp/bitbucket folder. This folder contains all the Bitbucket repositories to analyze grouped by project name.
-2. Create a copy of the "As-Is" document template in the docs folder.
-3. Fill in the relevant information about the current state of the repository.
-4. 
+1. Identifica el repositorio a analizar en la carpeta mcp/bitbucket. Esta carpeta contiene todos los repositorios de Bitbucket a analizar, agrupados por nombre de aplicación.
+2. Crea una copia de la plantilla del documento "As-Is" en la carpeta docs.
+3. Rellena la información relevante sobre el estado actual del repositorio.
