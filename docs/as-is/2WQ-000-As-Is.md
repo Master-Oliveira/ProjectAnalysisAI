@@ -132,7 +132,7 @@ graph TB
 
 ### 2.2 Requisitos principales
 
-</br>
+<br>
 
 **DATOS**
 | Tipo de requerimiento | Descripción del requerimiento | 
@@ -141,8 +141,8 @@ graph TB
 | Tiempo de datos | **Indefinido** - Los datos de blogs, artículos, productos y usuarios deben conservarse indefinidamente a menos que sean eliminados explícitamente por los administradores. El sistema está diseñado como entorno de demostración pero soporta retención a largo plazo. | 
 | Protección de datos | Los datos se protegen mediante: **Autenticación OAuth2/OIDC** - Todas las peticiones requieren tokens válidos emitidos por Keycloak. **Comunicación entre servicios** - Autenticación mediante tokens OAuth2 para comunicación service-to-service. **Almacenamiento** - Las credenciales de bases de datos se gestionan mediante variables de entorno y configuración centralizada. Los secretos JWT están codificados en Base64 y deberían rotarse en producción. **Sin encriptación de datos en reposo** - Las bases de datos no implementan encriptación transparente por defecto. | 
 
-</br>
-</br>
+<br>
+<br>
 
 **SEGURIDAD**
 | Tipo de requerimiento | Descripción del requerimiento | 
@@ -151,8 +151,8 @@ graph TB
 | Autorización | **Control de acceso basado en roles (RBAC)** - Keycloak gestiona roles `ROLE_ADMIN` y `ROLE_USER`. Los tokens JWT incluyen claims de `groups` que identifican los roles del usuario. Cada microservicio valida tokens y verifica roles antes de permitir operaciones. El Gateway filtra peticiones y aplica políticas de seguridad antes de enrutar a microservicios. | 
 | Conectividad | **Red corporativa**: No hay información de conectividad con redes corporativas en la configuración actual. El sistema está diseñado para ejecutarse en entornos contenedorizados (Docker/Kubernetes). **Internet - Entrada**: El Gateway expone puerto 8080 para acceso HTTP desde clientes externos. En producción debería configurarse con HTTPS y certificados válidos. **Internet - Salida**: No hay evidencia de conexiones salientes a servicios externos de Internet. Todas las comunicaciones son internas entre los componentes del sistema. | 
 
-</br>
-</br>
+<br>
+<br>
 
 **OPERACIÓN / MONITORIZACIÓN**
 | Tipo de requerimiento | Descripción del requerimiento | 
@@ -161,8 +161,8 @@ graph TB
 | SLA | No hay información suficiente sobre acuerdos de nivel de servicio. El sistema es una demostración y no tiene SLAs definidos. |
 | Disaster Recovery | No hay información suficiente sobre estrategia de disaster recovery. La configuración de MongoDB en cluster con 3 réplicas (`dbPeerCount: 3`) proporciona redundancia básica para el servicio Store. |
 
-</br>
-</br>
+<br>
+<br>
 
 **DEVOPS**
 | Tipo de requerimiento | Descripción del requerimiento | Detalle | 
@@ -175,8 +175,8 @@ graph TB
 | No Code (Kafka / Couch / Alertas) | No se utiliza Kafka, CouchDB ni sistemas de alertas no-code | El sistema usa comunicación HTTP/REST síncrona entre servicios |
 | Entornos / Plataformas de despliegue | **Docker Compose**: Configuración completa para despliegue local en `docker-compose/docker-compose.yml`. **Kubernetes**: Descriptores de despliegue generados con JHipster en la carpeta `k8s/`. Namespace configurado: `demo`. Soporte para Minikube (local) y Google Kubernetes Engine (GKE). **Perfiles disponibles**: `dev` (desarrollo) y `prod` (producción). | Comandos de build incluyen jib para generar imágenes Docker |
 
-</br>
-</br>
+<br>
+<br>
 
 **REQUISITOS TECNICOS**
 | Tipo de requerimiento | Descripción del requerimiento | 
@@ -267,8 +267,8 @@ No hay información suficiente sobre consumidores externos. El sistema está dis
 
 ### 2.7 Bases de datos
 
-</br>
-</br>
+<br>
+<br>
 
 **BASE DE DATOS**
 | Componente | Base de Datos | URL/Dirección completa | Tipo       | Entorno(s) | Propósito | Tablas/Colecciones | Notas (TTL e índices) |
