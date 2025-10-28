@@ -18,10 +18,10 @@ Ten en cuenta lo siguiente al comunicarte con los lectores del documento:
 ## Folder structure
 
 - La carpeta mcp contiene toda la información sobre las aplicaciones.
-- La carpeta mcp/bitbucket contiene todos los archivos de las aplicaciones que se utilizan al analizar repositorios de Bitbucket.
-- La carpeta mcp/config-manager contiene todos los archivos de configuración de las aplicaciones para referencias cruzadas cuando sea necesario.
+- La carpeta mcp/bitbucket contiene todos los archivos de las aplicaciones que se utilizan al analizar repositorios de Bitbucket (código fuente).
 - Cada aplicación tiene una carpeta raíz con subcarpetas para diferentes componentes.
 - Cada subcarpeta dentro de la aplicación es un componente de la aplicación y contiene archivos y recursos relacionados de ese componente.
+- La carpeta mcp/config-manager contiene todos los archivos de configuración de los componentes para referencias cruzadas cuando sea necesario.
 - La carpeta docs contiene todos los archivos de documentación.
 
 
@@ -33,5 +33,7 @@ Ten en cuenta lo siguiente al comunicarte con los lectores del documento:
 
 ### Steps to generate a document
 1. Identifica el repositorio a analizar en la carpeta mcp/bitbucket. Esta carpeta contiene todos los repositorios de Bitbucket a analizar, agrupados por nombre de aplicación.
-2. Crea una copia de la plantilla del documento "As-Is" en la carpeta docs.
-3. Rellena la información relevante sobre el estado actual del repositorio.
+2. Identifica todos los componentes dentro de la carpeta de la aplicación que se vaya a documentar.
+3. Identifica la configuración relevante en la carpeta mcp/config-manager para cada componente.
+4. Crea una copia de la plantilla del documento "As-Is" en la carpeta docs.
+5. Rellena la información relevante sobre el estado actual de la aplicación.
