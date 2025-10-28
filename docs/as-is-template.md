@@ -14,7 +14,9 @@
 **Nombre del proyecto**: [Nombre de la aplicación completo]
 
 **Descripción del proyecto**:
-[Realizar una breve descripción de la aplicación basándote en la información que puedas encontrar en el código fuente, ficheros de configuración y documentación asociada al proyecto. Explica su propósito en términos que un usuario de negocio pueda entender. Evita jerga técnica. Añade una lista con las tecnologías principales utilizadas en el proyecto. Si alguna de las tecnologías está solamente referenciada pero no se utiliza en el código, indícalo como tal en la sección "Información adicional".]
+[Realizar una breve descripción de la aplicación basándote en la información que puedas encontrar en el código fuente, ficheros de configuración y documentación asociada al proyecto. Explica su propósito en términos que un usuario de negocio pueda entender. Evita jerga técnica. Añade una lista con las tecnologías principales utilizadas en el proyecto. Si alguna de las tecnologías está solamente referenciada pero no se utiliza en el código, indícalo como tal en la sección "Información adicional". 
+No hagas asunciones. Añade solamente información confirmada y usada en el código o en el fichero de configuración. Si no hubiera información suficiente de un dato, indícalo: "No hay información suficiente".
+]
 
 ### 1.2 Funcionalidades principales
 
@@ -35,7 +37,9 @@
 
 ### 2.1 Diseño de la solución
 
-[Lista todos los componentes de la aplicación, añadiendo un resumen sobre éste.]
+[Lista todos los componentes de la aplicación, añadiendo un resumen sobre éste.
+No hagas asunciones. Añade solamente información confirmada y usada en el código o en el fichero de configuración. Si no hubiera información suficiente de un dato, indícalo: "No hay información suficiente".
+]
 
 | Componente | Descripción | 
 |------------|---------|
@@ -237,7 +241,7 @@ Si no obtienes alguno de estos datos, indícalo en la tabla: "No hay informació
 
 [
 - Identifica todas las comunicaciones de los componentes.
-- Buscar en el código fuente y ficheros de configuración referencias a otros servicios o plataformas externas.
+- Buscar en el código fuente y ficheros de configuración referencias a otros servicios, apis o plataformas externas.
 - Buscar en los ficheros de configuración dentro de la carpeta config-manager
 - Identificar las URLs, endpoints o direcciones utilizados para interactuar con estas dependencias. 
 - Identificar cualquier otra comunicación externa que utiliza cada componente.
@@ -257,24 +261,32 @@ Si no obtienes alguno de estos datos, indícalo en la tabla: "No hay informació
 ### 2.5 APIs y consumidores
 
 [
-- Identifica cada una de las apis o sistemas expuestos por cada uno de los componentes de la aplicación y aquellos sistemas que lo consumen
-- Por cada componente:
-  - Buscar en el código fuente y ficheros de configuración referencias a APIs externas que utilice cada componente.
-  - Buscar en los ficheros de configuración dentro de la carpeta config-manager
+Tu objetivo es identificar todas las APIs que expone la aplicación.
+
+- Para ello, por cada componente de la aplicación:
+  - Identifica cada una de las apis por cada uno de los componentes de la aplicación y aquellos sistemas que lo consumen
+  - Buscar en el código fuente y ficheros de configuración referencias a APIs expuestas por cada componente.
+  - Buscar en los ficheros de configuración dentro de la carpeta mcp/config-manager
   - Identificar las URLs, endpoints y métodos HTTP utilizados para interactuar con estas APIs.
   - Si identificas el entorno (dev, uat, pro) en el que se exponen las APIs, indícalo.
 - Añade tantas filas como necesites
 - Si no tienes información del consumidor de la API, indícalo "No hay información suficiente sobre este dato"
+
 ]
+
+
 
 | WSO API Name | Contexto | Versiones desplegadas | Gateways | Microservicio  | Endpoint  | 
 |------------|---------|---|---|---|---|
-| Nombre del api en WSO | /context/api-name | Version del api | ONPREM Internal, ONPREM External | Microservicio que expone la API | Destino final | 
+| Nombre del api en WSO | /context/api-name | Version del api | ONPREM Internal, ONPREM External | Componente que expone la API | Destino final | 
 | ms_eci_dataentry_middleware_v1 | /products/ms-eci-dataentry-middleware/v1 | 1.0.0 | ONPREM Internal | ms-eci-dataentry-stibo	 | https://ms-eci-dataentry-stibo.paas.uat.eci.geci/products/ms-eci-dataentry-middleware/v1 | 
+
+
 
 **Detalle de los consumidores**
 
-[Por cada una de las APIs expuestas identificadas en el apartado anterior, añade una fila e identifica qué servicio o aplicación consume esa API.
+[
+   Por cada una de las APIs expuestas identificadas en el apartado anterior, añade una fila e identifica qué servicio o aplicación consume esa API.
 No hagas asunciones. Añade solamente información confirmada y usada en el código o en el fichero de configuración. Si no tienes datos suficientes para rellenar la tabla, indícalo: "No hay información suficiente" ]
 
 | WSO API Name | App WSO - Subscriptores | Llamadas últimos 30 días | Notas | 
@@ -285,35 +297,42 @@ ms_eci_dataentry_middleware_v1 | servicio A | 40 | Notas adicionales |
 ### 2.6 Comunicaciones asíncronas
 
 [
-Por cada componente de la aplicación:
+Tu objetivo es identificar todas las plataformas de mensajería o eventing que utiliza la aplicación.
+
+Para ello, por cada componente de la aplicación:
   - Identificar todas las plataformas de mensajería o eventing que utiliza.
   - Buscar en el código fuente y ficheros de configuración referencias a plataformas de mensajería como Kafka, RabbitMQ, ActiveMQ, etc.
-  - Buscar en los ficheros de configuración dentro de la carpeta config-manager
-  - Identificar los topics, colas o canales utilizados para enviar y recibir mensajes.
-  - Identificar si es un consumidor o productor de la cola identificada.
+  - Identificar los topics, colas o canales utilizados para enviar y recibir mensajes, buscando en los ficheros de configuración de la carpeta mcp/config-manager.
+  - Busca en los ficheros de configuración por valores de configuración que contengan la palabra "topic" en la clave
+  - Una vez identificada la cola o topic, identificar si el componente es un consumidor o productor de esa cola identificada. Para ello busca dentro del código fuente de ese componente referencias a "Producer" o "Consumer".
   - Identificar los brokeres o servidores de mensajería configurados.
-- Con toda esta información, rellena la siguiente tabla.
-- Añade tantas filas como necesites
+- Con toda esta información obtenida, rellena la siguiente tabla.
+- Añade tantas filas a la tabla como componentes existan en la aplicación
 ]
 
-
-
 **TÓPICOS DE KAFKA CONSUMIDORES**
+[En la siguiente tabla añade la información que has obtenido de aquellos componentes que son consumidores de la cola o topic identificado.]
+
 | Servicio | Nombre | 
 |------------|---------|
-| Servicio que consume el mensaje Kafka| Nombre de la cola de Kafka que consume ese servicio   | 
+| Nombre del componente que consume el mensaje de un tópico de Kafka| Nombre de la cola de Kafka que consume ese componente   | 
 | por ejemplo: ms-eci-linguaserv-stibo | 2WP-000.PRODUCTS.MASTERDATA.TRANSLATIONS_GOB.TOP | 
 
 **TÓPICOS DE KAFKA PRODUCTORES**
+[En la siguiente tabla añade la información que has obtenido de aquellos componentes que son productores de la cola o topic identificado.]
+
 | Servicio | Nombre | 
 |------------|---------|
-| Servicio que produce el mensaje Kafka | Nombre de la cola de Kafka que produce ese servicio   | 
+| Nombre del componente que produce el mensaje a un tópico de Kafka | Nombre de la cola de Kafka que produce ese componente   | 
 | por ejemplo: ms-eci-stibo-repocloud-tform | 2WQ-000.PIM.PRODUCTS.MIDDLEWAREREPOCLOUD_NGOB.TOP | 
+
 
 ### 2.7 Bases de datos
 
 [
-Identificar todas las bases de datos que utiliza la aplicación. Por cada componente:
+Tu objetivo es identificar todas las bases de datos que utiliza la aplicación.
+
+Para ello por cada componente de la aplicación:
 - Buscar en el código fuente y ficheros de configuración referencias a bases de datos como MySQL, PostgreSQL, MongoDB, etc.
 - Buscar en los ficheros de configuración dentro de la carpeta config-manager
 - Identificar el nombre de los esquemas, tablas o colecciones utilizadas por la aplicación.
