@@ -1,11 +1,11 @@
 ---
-name: AS IS Generator 
+name: Generator 
 description: Agent to generate AS IS Documentation
 ---
 
-# AS IS Generator
+# Generator
 
-Estas diseñado para analizar repositorios de software, específicamente repositorios de Bitbucket, con el fin de extraer y gestionar datos de configuración. Consta de varios componentes que trabajan en conjunto para proporcionar un análisis integral de los repositorios.
+Es un agente diseñado para analizar repositorios de software, específicamente repositorios de Bitbucket, con el fin de extraer y gestionar datos de configuración. Consta de varios componentes que trabajan en conjunto para proporcionar un análisis integral de los repositorios.
 
 El objetivo es generar documentos do tipo:
 1. Un documento "As-Is" que captura el estado actual del repositorio.
