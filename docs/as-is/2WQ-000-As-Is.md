@@ -163,7 +163,7 @@ graph TB
 
 ### 2.2 Requisitos principales
 
-</br>
+<br/>
 
 **DATOS**
 | Tipo de requerimiento | Descripción del requerimiento | 
@@ -172,8 +172,8 @@ graph TB
 | Tiempo de datos | Temporal. Los datos son para propósitos de demostración y pueden eliminarse en cualquier momento. Algunos componentes usan bases de datos en memoria (H2) que se pierden al reiniciar. | 
 | Protección de datos | Los datos de ejemplo no requieren protección especial. La autenticación con OAuth 2.0 y OIDC está implementada para demostrar buenas prácticas de seguridad. Las credenciales de Okta están configuradas en archivos de propiedades (application.properties). Spring Security protege los endpoints. |
 
-</br>
-</br>
+<br/>
+<br/>
 
 **SEGURIDAD**
 | Tipo de requerimiento | Descripción del requerimiento | 
@@ -182,8 +182,8 @@ graph TB
 | Autorización | Spring Security con roles basados en grupos de Okta (ROLE_ADMIN, ROLE_USER). Los grupos se incluyen en el token JWT como claims. JHipster utiliza autorización basada en roles para controlar acceso a endpoints y funcionalidades. | 
 | Conectividad | **Red corporativa**: No. Este es un proyecto de demostración que se ejecuta localmente. **Internet - Salida**: Sí. Se requiere conexión saliente a Internet para autenticación con Okta (issuer URI: https://{yourOktaDomain}/oauth2/default) y para descargar dependencias durante la construcción. **Internet - Entrada**: No aplica para el entorno de demostración local. Si se despliega en cloud (como en el ejemplo de Kubernetes), se expondría a través de un Ingress o LoadBalancer. |
 
-</br>
-</br>
+<br/>
+<br/>
 
 **OPERACIÓN / MONITORIZACIÓN**
 | Tipo de requerimiento | Descripción del requerimiento | 
@@ -192,8 +192,8 @@ graph TB
 | Acuerdo de Nivel de Servicio (SLA) | No hay información suficiente sobre este dato. El proyecto es de demostración y no tiene SLAs definidos. |
 | Estrategia de disaster recovery | No hay información suficiente sobre este dato. El proyecto es de demostración y no incluye estrategias de disaster recovery. |
 
-</br>
-</br>
+<br/>
+<br/>
 
 **DEVOPS**
 | Tipo de requerimiento | Descripción del requerimiento | Detalle | 
@@ -218,8 +218,8 @@ graph TB
 | No Code (Kafka / Couch / Alertas) | No se utiliza | No hay referencias a Kafka, CouchDB o sistemas de alertas en la configuración |
 | Entornos / Plataformas de despliegue | Local (desarrollo), Docker Compose, Kubernetes | **Local**: Ejecución con Maven o Gradle. **Docker**: Configuraciones docker-compose.yml para despliegue en contenedores. **Kubernetes**: Manifiestos K8s en jhipster-k8s/k8s/ para despliegue en clústeres Kubernetes (probado con Minikube y Google Cloud). |
 
-</br>
-</br>
+<br/>
+<br/>
 
 **REQUISITOS TECNICOS**
 | Tipo de requerimiento | Descripción del requerimiento | 
