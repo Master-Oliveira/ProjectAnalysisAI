@@ -17,12 +17,13 @@ Ten en cuenta lo siguiente al comunicarte con los lectores del documento:
 
 ## Folder structure
 
-- La carpeta mcp contiene toda la información sobre las aplicaciones.
-- La carpeta mcp/bitbucket contiene todos los archivos de las aplicaciones que se utilizan al analizar repositorios de Bitbucket (código fuente).
-- Cada aplicación tiene una carpeta raíz con subcarpetas para diferentes componentes.
-- Cada subcarpeta dentro de la aplicación es un componente de la aplicación y contiene archivos y recursos relacionados de ese componente.
+- La información sobre las aplicaciones esta en la carpeta mcp y en el servidor de mcp de bitbucket.
+- El servidor mcp de bitbucket contiene todos los archivos de las aplicaciones que se utilizan al analizar repositorios de Bitbucket (código fuente).
+- Cada aplicación en bitbucket tiene múltiples proyectos con repositorios distintos para diferentes componentes.
+- Cada repositorio bitbucket dentro de la aplicación es un componente de la aplicación y contiene archivos y recursos relacionados de ese componente.
 - La carpeta mcp/config-manager contiene todos los archivos de configuración de los componentes para referencias cruzadas cuando sea necesario.
 - La carpeta docs contiene todos los archivos de documentación.
+- La documentación de una aplicación deberá contener la información de todos los repositorios que componen la aplicación.
 
 
 ### Security considerations
@@ -32,8 +33,10 @@ Ten en cuenta lo siguiente al comunicarte con los lectores del documento:
 - Si se requieren credenciales u otra información sensible, agrega funciones al programa para solicitarlas, almacenarlas localmente y cerrar sesión. Por ejemplo, un cuadro de diálogo de inicio de sesión.
 
 ### Steps to generate a document
-1. Identifica el repositorio a analizar en la carpeta mcp/bitbucket. Esta carpeta contiene todos los repositorios de Bitbucket a analizar, agrupados por nombre de aplicación.
-2. Identifica todos los componentes dentro de la carpeta de la aplicación que se vaya a documentar.
-3. Identifica la configuración relevante en la carpeta mcp/config-manager para cada componente.
-4. Crea una copia de la plantilla del documento "As-Is" en la carpeta docs.
-5. Rellena la información relevante sobre el estado actual de la aplicación.
+1. Analiza la plantilla de documento "As-Is" en la carpeta docs para entender su estructura y la informacion necesarios.
+2. Identifica los repositorios a analizar usando el servidor de mcp para bitbucket. Esta servidor contiene todos los repositorios de Bitbucket a analizar.
+3. Identifica todos los componentes dentro de la aplicación que se vaya a documentar.
+4. Identifica la configuración relevante en la carpeta mcp/config-manager para cada componente.
+5. Utiliza los archivos de configuración de Openshift y Kubernetes en los repositorios para obtener información adicional sobre la configuración de cada componente (para rellenar la sección UBICACIÓN DE COMPONENTES del As-Is).
+6. Crea una copia de la plantilla del documento "As-Is" en la carpeta docs.
+7. Rellena la información relevante sobre el estado actual de la aplicación.
